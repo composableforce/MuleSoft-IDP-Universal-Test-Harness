@@ -48,6 +48,9 @@ securedBy: mulesoft-basic-auth
                     example: 1.0.0 - PUBLISHED
                     type: string
     /{actionVersion}/executions/{id}:
+      uriParameters:
+        actionVersion:
+          type: field-actionId
 
 
 
@@ -74,6 +77,13 @@ types: # Considered use of Library, but the dependency was deemed to hinder adop
     example: 1.1.0
     type: string
     pattern: ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9A-Za-z-][0-9A-Za-z-]*)(?:\.(?:0|[1-9A-Za-z-][0-9A-Za-z-]*))*))?(?:\+([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?$
+  field-executionId:
+    displayName: IDP Execution Id
+    description: IDP Execution Id returned after successful submission
+    default: 022c61de-9bfc-4a94-8a9c-43c5f8ac153e
+    example: 022c61de-9bfc-4a94-8a9c-43c5f8ac153e
+    type: string
+    pattern: ^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$
 
 description: |
 
