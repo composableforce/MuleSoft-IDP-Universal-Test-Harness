@@ -30,13 +30,14 @@ securedBy: mulesoft-basic-auth
         "200":
           body:
             application/json:
-              properties:
-                id:
-                  example: 1.1.0
-                  type: string
-                description:
-                  example: 1.0.0 - PUBLISHED
-                  type: string
+              items:
+                properties:
+                  id:
+                    example: 1.1.0
+                    type: string
+                  name:
+                    example: 1.0.0 - PUBLISHED
+                    type: string
 
 
 securitySchemes:
