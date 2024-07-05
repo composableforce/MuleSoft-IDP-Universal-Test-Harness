@@ -61,6 +61,88 @@ types:
     pattern: "[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?"
 
 
+
+
+
+
+          body:
+            application/problem+json:
+              type: object-commonError
+        406:
+          description: Not Acceptable
+          body:
+            application/problem+json:
+              type: object-commonError
+        429:
+          description: Too Many Requests
+          body:
+            application/problem+json:
+              type: object-commonError
+
+securitySchemes:
+  mulesoft-connectedApp-oauth:
+    displayName: 🛡️ MuleSoft Connected App OAuth 2.0
+    type: OAuth 2.0
+    description: |
+
+        ### [Configure Connected Apps](https://docs.mulesoft.com/idp/automate-document-processing-with-the-idp-api#create-a-connected-app)
+
+        ```
+          curl --location --request POST 'https://anypoint.mulesoft.com/accounts/api/v2/oauth2/token' \ 
+          --header 'Content-Type: application/json' \
+          --data-raw '{
+            "grant_type": "client_credentials",
+            "client_id": "<connected-app-client-id>", 
+            "client_secret": "<connected-app-client-secret>" 
+          }'
+        ```
+    settings:
+      accessTokenUri: https://anypoint.mulesoft.com/accounts/api/v2/oauth2/token
+      authorizationGrants: 
+        - client_credentials
+    describedBy:
+      headers:
+        Authorization:
+          description: |
+            Used to send a valid OAuth 2 access token. Bearer 234235246236236326
+          type: string
+          example: Bearer 0695bab3-e776-4d33-b61d-092789cb8765
+          pattern: ^Bearer [{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$
+      responses:
+        401:
+          description: |
+            Bad or expired token. This can happen if the API consumer uses a revoked or expired access token. To fix, you should re-authenticate the user.
+          body:
+            application/problem+json:
+              type: object-commonError
+        403:
+          description: |
+            Bad OAuth request (wrong consumer key, bad nonce, expired timestamp...). Unfortunately, re-authenticating the user won't help here.
+          body:
+            application/problem+json:
+              type: object-commonError
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 description: |
 
   mediaType: application/json
