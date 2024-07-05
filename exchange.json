@@ -1,9 +1,9 @@
 {
   "main": "mulesoft-idp-universal-test-harness.raml",
-  "name": "MuleSoft IDP Universal Test Harness",
+  "name": "MuleSoft IDP Universal 🌐 Test Harness",
   "groupId": "eca25329-9592-4ff1-9054-1b08d103b991",
   "assetId": "mulesoft-idp-universal-test-harness",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "classifier": "raml",
   "tags": [],
   "descriptorVersion": "1.0.0",
