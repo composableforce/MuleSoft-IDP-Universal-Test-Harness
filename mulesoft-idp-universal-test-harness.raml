@@ -40,15 +40,12 @@ baseUriParameters:
                 description:
                   example: 1.0.0 - PUBLISHED
                   type: string
-      securedBy:
-        - SecurityScheme
     uriParameters:
       actionId:
         type: field-actionId
 
 
-
-types:
+types: # Considered use of Library, but the dependency was deemed to hinder adoption
   field-actionId:
     description: |-
       IDP Document Action Id 
@@ -61,10 +58,6 @@ types:
 
 
 
-
-  securitySchemes:
-    mulesoft-basic-auth:
-      displayName: 🛡️ MuleSoft Basic Authentication Simple Policy
 
 
 
