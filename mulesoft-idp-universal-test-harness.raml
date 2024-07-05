@@ -146,17 +146,17 @@ types: # Considered use of Library, but the dependency was deemed to hinder adop
         type: object
         properties: {}
       prompts?:
-        type: Prompt
-  Prompt:
+        type: object-Prompt
+  object-Prompt:
     displayName: IDP Retrieve Execution Response Prompt Object
     type: object
     properties:
-      answer?: Field
+      answer?: object-Field
       source?:
         type: string
       prompt?:
         type: string
-  Field:
+  object-Field:
     displayName: IDP Retrieve Execution Response Field Object
     type: object
     properties:
