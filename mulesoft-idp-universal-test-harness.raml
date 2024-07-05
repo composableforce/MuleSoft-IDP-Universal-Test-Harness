@@ -15,10 +15,13 @@ securedBy: mulesoft-basic-auth
 
 /webapp:
   get:
+    displayName: Webapp
     responses:
       "200":
         body:
-          
+          text/html:
+            description: Index HTML Page
+
   /actions/{actionId}/versions:
     get:
       responses:
