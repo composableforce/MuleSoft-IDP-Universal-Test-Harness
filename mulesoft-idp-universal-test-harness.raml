@@ -91,6 +91,94 @@ types: # Considered use of Library, but the dependency was deemed to hinder adop
     example: 022c61de-9bfc-4a94-8a9c-43c5f8ac153e
     type: string
     pattern: ^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$
+  field-ExecutionStatus:
+    displayName: IDP Execution Status
+    description: |
+      ## [Execution Results Reference](https://docs.mulesoft.com/idp/automate-document-processing-with-the-idp-api#execution-status-reference).
+
+      When you query the results of an execution, the IDP API returns the status which can be any of the following:
+
+      - `ACKNOWLEDGED`: The document action execution request was received.
+      - `IN_PROGRESS`: The execution started.
+      - `RESULTS_PENDING`: The execution finished and IDP is processing the results.
+      - `MANUAL_VALIDATION_REQUIRED`: The execution finished but the results need manual validation.
+      - `FAILED`: The execution request finished unsuccessfully.
+      - `PARTIAL_SUCCESS`: The execution request finished but some sub-tasks failed.
+      - `SUCCEEDED`: The execution request finished successfully.
+    default: IN_PROGRESS
+    enum:
+      - ACKNOWLEDGED
+      - IN_PROGRESS
+      - RESULTS_PENDING
+      - MANUAL_VALIDATION_REQUIRED
+      - FAILED
+      - PARTIAL_SUCCESS
+      - SUCCEEDED
+    example: IN_PROGRESS
+    type: string
+
+  object-DocumentExecutionGetResponse:
+    displayName: IDP Retrieve Execution Response Object
+    type: object
+    description:
+    properties:
+      pages?:
+        type: array
+        items: object-Page
+      id?:
+        type: field-executionId
+      documentName?:
+        type: string
+      prompts?:
+        type: object-Prompt
+      status?:
+        type: field-ExecutionStatus
+  object-Page:
+    displayName: IDP Retrieve Execution Response Page Object
+    type: object
+    properties:
+      tables?:
+        type: object
+        properties: {}
+      page?:
+        type: string
+      fields?:
+        type: object
+        properties: {}
+      prompts?:
+        type: Prompt
+  Prompt:
+    displayName: IDP Retrieve Execution Response Prompt Object
+    type: object
+    properties:
+      answer?: Field
+      source?:
+        type: string
+      prompt?:
+        type: string
+  Field:
+    displayName: IDP Retrieve Execution Response Field Object
+    type: object
+    properties:
+      value?:
+        type: string
+      geometry?:
+        type: object
+        properties:
+          height:
+            type: number
+            required: false
+          left:
+            type: number
+            required: false
+          width:
+            type: number
+            required: false
+          top:
+            type: number
+            required: false
+      confidenceScore?:
+        type: number
 
 description: |
 
