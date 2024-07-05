@@ -20,6 +20,15 @@ securedBy: mulesoft-basic-auth
         body:
           text/html:
             description: Index HTML Page
+  /upload:
+    post:
+      displayName: Webapp File Upload
+      body:
+        multipart/form-data:
+          fileTypes:
+            - image/png
+            - image/jpeg
+            - application/pdf
 
   /actions/{actionId}/versions:
     uriParameters:
@@ -38,15 +47,8 @@ securedBy: mulesoft-basic-auth
                   name:
                     example: 1.0.0 - PUBLISHED
                     type: string
-  /upload:
-    post:
-      displayName: Webapp File Upload
-      body:
-        multipart/form-data:
-          fileTypes:
-            - image/png
-            - image/jpeg
-            - application/pdf
+  
+
 
 
 securitySchemes:
