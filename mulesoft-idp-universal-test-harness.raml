@@ -47,10 +47,13 @@ securedBy: mulesoft-basic-auth
                   name:
                     example: 1.0.0 - PUBLISHED
                     type: string
-    /{actionVersion}/executions/{id}:
+    /{actionVersion}/executions/{executionId}:
       uriParameters:
         actionVersion:
-          type: field-actionId
+          type: field-actionVersion
+        executionId:
+          type: field-executionId
+          
 
 
 
