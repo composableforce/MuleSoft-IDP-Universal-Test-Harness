@@ -64,24 +64,9 @@ types:
 
 
 
-
-          body:
-            application/problem+json:
-              type: object-commonError
-        406:
-          description: Not Acceptable
-          body:
-            application/problem+json:
-              type: object-commonError
-        429:
-          description: Too Many Requests
-          body:
-            application/problem+json:
-              type: object-commonError
-
 securitySchemes:
-  mulesoft-connectedApp-oauth:
-    displayName: 🛡️ MuleSoft Connected App OAuth 2.0
+  mulesoft-basic-oauth:
+    displayName: 🛡️ MuleSoft Basic
     type: OAuth 2.0
     description: |
 
