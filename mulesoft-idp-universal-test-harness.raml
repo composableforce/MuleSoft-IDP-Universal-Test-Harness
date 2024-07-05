@@ -44,6 +44,11 @@ baseUriParameters:
       actionId:
         type: field-actionId
 
+securitySchemes:
+  mulesoft-basic-auth:
+    displayName: 🛡️ MuleSoft Basic Authentication
+    type: Basic Authentication
+    description: | ### [Basic Authentication: Simple Policy](https://docs.mulesoft.com/gateway/latest/policies-included-basic-auth-simple)
 
 types: # Considered use of Library, but the dependency was deemed to hinder adoption
   field-actionId:
