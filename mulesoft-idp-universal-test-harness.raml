@@ -40,7 +40,13 @@ securedBy: mulesoft-basic-auth
                     type: string
   /upload:
     post:
-      
+      displayName: Webapp Upload Page
+      body:
+        multipart/form-data:
+          fileTypes:
+            - image/png
+            - image/jpeg
+            - application/pdf
 
 
 securitySchemes:
