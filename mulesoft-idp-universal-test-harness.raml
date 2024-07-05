@@ -15,7 +15,7 @@ securedBy: mulesoft-basic-auth
 
 /webapp:
   get:
-    displayName: Webapp
+    displayName: Webapp Home Page
     responses:
       "200":
         body:
@@ -23,6 +23,9 @@ securedBy: mulesoft-basic-auth
             description: Index HTML Page
 
   /actions/{actionId}/versions:
+    uriParameters:
+      actionId:
+        type: field-actionId
     get:
       responses:
         "200":
@@ -35,9 +38,7 @@ securedBy: mulesoft-basic-auth
                 description:
                   example: 1.0.0 - PUBLISHED
                   type: string
-    uriParameters:
-      actionId:
-        type: field-actionId
+
 
 securitySchemes:
   mulesoft-basic-auth:
@@ -57,38 +58,13 @@ types: # Considered use of Library, but the dependency was deemed to hinder adop
     pattern: "[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?"
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 description: |
 
   mediaType: application/json
 
   protocols: HTTPS
 
-  securedBy: 🛡️ MuleSoft Client ID Enforcement
+  securedBy: 🛡️ MuleSoft Basic Authentication
 
   | Author | Date | Description
   | -------- | ------- | ------- |
