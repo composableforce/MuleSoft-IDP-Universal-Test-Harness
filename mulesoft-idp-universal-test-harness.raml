@@ -1,2 +1,47 @@
 #%RAML 1.0
 title: MuleSoft IDP Universal Test Harness
+securitySchemes:
+  SecurityScheme:
+    type: Basic Authentication
+version: v1
+protocols: HTTPS
+securedBy: SecurityScheme
+baseUri: https://{host}/api/{version}
+/webapp:
+  get:
+    responses:
+      "200":
+        body:
+          text/html:
+            example: Example
+            type: string
+    securedBy:
+      - SecurityScheme
+/webapp/actions/{actionId}/versions:
+  get:
+    responses:
+      "200":
+        body:
+          application/json:
+            properties:
+              id:
+                example: 1.1.0
+                type: string
+              description:
+                example: 1.0.0 - PUBLISHED
+                type: string
+    securedBy:
+      - SecurityScheme
+  uriParameters:
+    actionId:
+      type: field-actionId
+
+types:
+  field-actionId:
+    description: |-
+      IDP Document Action Id 
+
+      Published Document Action UUID
+    example: 90c3e286-72b5-42ca-92d0-22f86ea8d766
+    type: string
+    pattern: "[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?"
